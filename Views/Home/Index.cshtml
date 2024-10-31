@@ -1,0 +1,67 @@
+﻿@{
+    ViewBag.Title = "Trang chủ - Linh kiện máy tính";
+}
+
+<div class="jumbotron text-center bg-dark text-white py-5">
+    <h1 class="display-4">Chào mừng đến với Cửa hàng Linh kiện Máy tính!</h1>
+    <p class="lead">Nơi cung cấp đầy đủ các loại linh kiện máy tính chất lượng cao cho mọi nhu cầu của bạn.</p>
+    <p><a href="/Products" class="btn btn-primary btn-lg">Khám phá sản phẩm &raquo;</a></p>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <!-- Card 1: CPU -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@Url.Content("~/Content/images/cpu.jpg")" class="card-img-top" alt="CPU">
+                <div class="card-body">
+                    <h5 class="card-title">CPU</h5>
+                    <p class="card-text">Các dòng CPU mạnh mẽ và mới nhất từ Intel và AMD.</p>
+                    <a href="/Products/CPU" class="btn btn-primary">Xem chi tiết &raquo;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 2: GPU -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@Url.Content("~/Content/images/gpu.jpg")" class="card-img-top" alt="GPU">
+                <div class="card-body">
+                    <h5 class="card-title">Card đồ họa (GPU)</h5>
+                    <p class="card-text">Card đồ họa hiệu năng cao cho chơi game và thiết kế đồ họa.</p>
+                    <a href="/Products/GPU" class="btn btn-primary">Xem chi tiết &raquo;</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Card 3: Phụ kiện -->
+        <div class="col-md-4">
+            <div class="card">
+                <img src="@Url.Content("~/Content/images/phukien.jpg")" class="card-img-top" alt="Phụ kiện">
+                <div class="card-body">
+                    <h5 class="card-title">Phụ kiện (PC)</h5>
+                    <p class="card-text">Bàn phím, chuột, tai nghe và nhiều hơn nữa để nâng cao trải nghiệm của bạn.</p>
+                    <a href="/Products/Accessories" class="btn btn-primary">Xem chi tiết &raquo;</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5 text-center">
+    <h2 class="mb-4">Tại sao chọn chúng tôi?</h2>
+    <div class="row">
+        <div class="col-md-4">
+            <h4>Chất lượng hàng đầu</h4>
+            <p>Chúng tôi cung cấp sản phẩm từ các thương hiệu hàng đầu với chất lượng đảm bảo.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Giá cả hợp lý</h4>
+            <p>Mức giá cạnh tranh với nhiều ưu đãi hấp dẫn cho khách hàng.</p>
+        </div>
+        <div class="col-md-4">
+            <h4>Hỗ trợ tận tâm</h4>
+            <p>Đội ngũ hỗ trợ khách hàng nhiệt tình, sẵn sàng giải đáp mọi thắc mắc.</p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<LEVINHHUY_K22CNT1_2210900106.Models.QUAN_TRI>
+
+<div class="container mt-4">
+    <h2 class="mb-4">Quản lý người dùng</h2>
+
+    <p>
+        @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-primary mb-3" })
+    </p>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>@Html.DisplayNameFor(model => model.Tai_khoan)</th>
+                <th>@Html.DisplayNameFor(model => model.Mat_khau)</th>
+                <th>@Html.DisplayNameFor(model => model.Trang_thai)</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Tai_khoan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Mat_khau)</td>
+                    <td>
+                        @{
+                            var statusText = item.Trang_thai.HasValue && item.Trang_thai.Value == 1 ? "Đang hoạt động" : "Đang bị khóa";
+                        }
+                        @statusText
+                    </td>
+                    <td>
+                        @Html.ActionLink("Sửa", "Edit", new { id = item.Tai_khoan }, new { @class = "btn btn-sm btn-warning" }) |
+                        @Html.ActionLink("Chi tiết", "Details", new { id = item.Tai_khoan }, new { @class = "btn btn-sm btn-info" }) |
+                        @Html.ActionLink("Xóa", "Delete", new { id = item.Tai_khoan }, new { @class = "btn btn-sm btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
