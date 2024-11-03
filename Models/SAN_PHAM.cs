@@ -18,6 +18,7 @@ namespace LEVINHHUY_K22CNT1_2210900106.Models
         public SAN_PHAM()
         {
             this.CHI_TIET_DON_HANG = new HashSet<CHI_TIET_DON_HANG>();
+            this.DON_HANG = new HashSet<DON_HANG>();
         }
     
         public int MaSP { get; set; }
@@ -28,5 +29,7 @@ namespace LEVINHHUY_K22CNT1_2210900106.Models
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHI_TIET_DON_HANG> CHI_TIET_DON_HANG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DON_HANG> DON_HANG { get; set; }
     }
 }

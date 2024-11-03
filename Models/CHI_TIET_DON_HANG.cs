@@ -14,10 +14,11 @@ namespace LEVINHHUY_K22CNT1_2210900106.Models
     
     public partial class CHI_TIET_DON_HANG
     {
-        public int MaDH { get; set; }
+        public string MaDH { get; set; }
         public int MaSP { get; set; }
         public int So_luong { get; set; }
         public decimal Gia { get; set; }
+        public Nullable<decimal> Tong_tien { get; set; }
     
         public virtual DON_HANG DON_HANG { get; set; }
         public virtual SAN_PHAM SAN_PHAM { get; set; }

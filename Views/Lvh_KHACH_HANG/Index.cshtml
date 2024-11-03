@@ -1,87 +1,68 @@
 ﻿@model IEnumerable<LEVINHHUY_K22CNT1_2210900106.Models.KHACH_HANG>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Danh sách khách hàng";
 }
 
-<h2>Index</h2>
+<div class="container mt-5">
+    <h2 class="text-center">@ViewBag.Title</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Ho_ten)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Tai_khoan)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Mat_khau)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dia_chi)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Dien_thoai)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Email)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ngay_sinh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Ngay_cap_nhat)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Gioi_tinh)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Trang_thai)
-        </th>
-        <th></th>
-    </tr>
+    <p class="text-center">
+        @Html.ActionLink("Tạo mới", "Create", null, new { @class = "btn btn-primary mb-3" })
+    </p>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ho_ten)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Tai_khoan)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Mat_khau)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dia_chi)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Dien_thoai)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Email)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ngay_sinh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Ngay_cap_nhat)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Gioi_tinh)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Trang_thai)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.MaKH }) |
-            @Html.ActionLink("Details", "Details", new { id=item.MaKH }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.MaKH })
-        </td>
-    </tr>
-}
-
-</table>
+    <table class="table table-striped table-hover shadow-sm">
+        <caption class="text-center text-muted">Danh sách thông tin khách hàng</caption>
+        <thead class="table-dark">
+            <tr>
+                <th>Họ tên</th>
+                <th>Tài khoản</th>
+                <th>Mật khẩu</th>
+                <th>Địa chỉ</th>
+                <th>Điện thoại</th>
+                <th>Email</th>
+                <th>Ngày sinh</th>
+                <th>Ngày cập nhật</th>
+                <th>Giới tính</th>
+                <th>Trạng thái</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.Ho_ten)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Tai_khoan)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Mat_khau)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Dia_chi)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Dien_thoai)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Email)</td>
+                    <td>@(item.Ngay_sinh.HasValue ? item.Ngay_sinh.Value.ToString("dd/MM/yyyy") : "")</td>
+                    <td>@(item.Ngay_cap_nhat.HasValue ? item.Ngay_cap_nhat.Value.ToString("dd/MM/yyyy") : "")</td>
+                    <td>@(item.Gioi_tinh == 1 ? "Nam" : "Nữ")</td>
+                    <td>
+                        @{
+                            var statusText = item.Trang_thai.HasValue && item.Trang_thai.Value == 1 ? "Đang hoạt động" : "Đang bị khóa";
+                            var statusColor = item.Trang_thai == 1 ? "text-success" : "text-danger";
+                        }
+                        <span class="@statusColor">@statusText</span>
+                    </td>
+                    <td>
+                        <div>
+                            <div>
+                                @Html.ActionLink("Sửa", "Edit", new { id = item.MaKH }, new { @class = "btn btn-warning btn-sm" })
+                            </div>
+                            <div>
+                                @Html.ActionLink("Xem", "Details", new { id = item.MaKH }, new { @class = "btn btn-info btn-sm" })
+                            </div>
+                            <div>
+                                @Html.ActionLink("Xóa", "Delete", new { id = item.MaKH }, new { @class = "btn btn-danger btn-sm", onclick = "return confirm('Bạn có chắc chắn muốn xóa khách hàng này?');" })
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

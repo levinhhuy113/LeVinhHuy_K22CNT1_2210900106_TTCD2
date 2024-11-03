@@ -13,10 +13,10 @@ namespace LEVINHHUY_K22CNT1_2210900106.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class LEVINHHUY_K22CNT1_2210900106Entities : DbContext
+    public partial class LEVINHHUY_K22CNT1_2210900106Entities3 : DbContext
     {
-        public LEVINHHUY_K22CNT1_2210900106Entities()
-            : base("name=LEVINHHUY_K22CNT1_2210900106Entities")
+        public LEVINHHUY_K22CNT1_2210900106Entities3()
+            : base("name=LEVINHHUY_K22CNT1_2210900106Entities3")
         {
         }
     

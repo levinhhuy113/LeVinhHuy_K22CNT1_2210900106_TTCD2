@@ -4,15 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="36b86b1fa1a74ef6ad641ba4a5c320b7" Name="Diagram1">
-        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.CHI_TIET_DON_HANG" Width="1.5" PointX="5.25" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.DON_HANG" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.KHACH_HANG" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.QUAN_TRI" Width="1.5" PointX="5.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.SAN_PHAM" Width="1.5" PointX="3" PointY="5.625" IsExpanded="true" />
-        <AssociationConnector Association="LEVINHHUY_K22CNT1_2210900106Model.FK__CHI_TIET_D__MaDH__1FCDBCEB" ManuallyRouted="false" />
-        <AssociationConnector Association="LEVINHHUY_K22CNT1_2210900106Model.FK__CHI_TIET_D__MaSP__20C1E124" ManuallyRouted="false" />
-        <AssociationConnector Association="LEVINHHUY_K22CNT1_2210900106Model.FK__DON_HANG__MaKH__1CF15040" ManuallyRouted="false" />
+      <Diagram DiagramId="976aff3dda1447079f8d5c79d057b700" Name="Diagram1">
+        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.CHI_TIET_DON_HANG" Width="1.5" PointX="3" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.DON_HANG" Width="1.5" PointX="6" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.KHACH_HANG" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.QUAN_TRI" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LEVINHHUY_K22CNT1_2210900106Model.SAN_PHAM" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="LEVINHHUY_K22CNT1_2210900106Model.FK_CHI_TIET_DON_HANG_DON_HANG" ManuallyRouted="false" />
+        <AssociationConnector Association="LEVINHHUY_K22CNT1_2210900106Model.FK_CHI_TIET_DON_HANG_SAN_PHAM" ManuallyRouted="false" />
+        <AssociationConnector Association="LEVINHHUY_K22CNT1_2210900106Model.FK_DON_HANG_KHACH_HANG" ManuallyRouted="false" />
+        <AssociationConnector Association="LEVINHHUY_K22CNT1_2210900106Model.FK_DON_HANG_SAN_PHAM" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

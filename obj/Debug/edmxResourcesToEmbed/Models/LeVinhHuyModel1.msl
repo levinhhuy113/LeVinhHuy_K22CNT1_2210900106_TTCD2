@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="LEVINHHUY_K22CNT1_2210900106ModelStoreContainer" CdmEntityContainer="LEVINHHUY_K22CNT1_2210900106Entities">
+  <EntityContainerMapping StorageEntityContainer="LEVINHHUY_K22CNT1_2210900106ModelStoreContainer" CdmEntityContainer="LEVINHHUY_K22CNT1_2210900106Entities3">
     <EntitySetMapping Name="CHI_TIET_DON_HANG">
       <EntityTypeMapping TypeName="LEVINHHUY_K22CNT1_2210900106Model.CHI_TIET_DON_HANG">
         <MappingFragment StoreEntitySet="CHI_TIET_DON_HANG">
@@ -8,6 +8,7 @@
           <ScalarProperty Name="MaSP" ColumnName="MaSP" />
           <ScalarProperty Name="So_luong" ColumnName="So_luong" />
           <ScalarProperty Name="Gia" ColumnName="Gia" />
+          <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -19,6 +20,7 @@
           <ScalarProperty Name="Ngay_dat" ColumnName="Ngay_dat" />
           <ScalarProperty Name="Tong_tien" ColumnName="Tong_tien" />
           <ScalarProperty Name="Trang_thai" ColumnName="Trang_thai" />
+          <ScalarProperty Name="MaSP" ColumnName="MaSP" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

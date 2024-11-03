@@ -19,15 +19,22 @@ namespace LEVINHHUY_K22CNT1_2210900106.Models
         {
             this.CHI_TIET_DON_HANG = new HashSet<CHI_TIET_DON_HANG>();
         }
+        
+        public string TenSP { get; set; }
+        public decimal Price { get; set; }
     
-        public int MaDH { get; set; }
+        public string MaDH { get; set; }
         public int MaKH { get; set; }
         public System.DateTime Ngay_dat { get; set; }
         public decimal Tong_tien { get; set; }
         public byte Trang_thai { get; set; }
-    
+        public Nullable<int> MaSP { get; set; }
+        public int SoLuong { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CHI_TIET_DON_HANG> CHI_TIET_DON_HANG { get; set; }
         public virtual KHACH_HANG KHACH_HANG { get; set; }
+        public virtual SAN_PHAM SAN_PHAM { get; set; }
+
     }
 }

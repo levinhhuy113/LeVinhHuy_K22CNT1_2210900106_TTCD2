@@ -12,15 +12,15 @@ namespace LEVINHHUY_K22CNT1_2210900106.Controllers
 {
     public class Lvh_QUAN_TRIController : Controller
     {
-        private LEVINHHUY_K22CNT1_2210900106Entities db = new LEVINHHUY_K22CNT1_2210900106Entities();
+        private LEVINHHUY_K22CNT1_2210900106Entities3 db = new LEVINHHUY_K22CNT1_2210900106Entities3();
 
-        // GET: Lvh_QUAN_TRI
+        // GET: QUAN_TRI
         public ActionResult Index()
         {
             return View(db.QUAN_TRI.ToList());
         }
 
-        // GET: Lvh_QUAN_TRI/Details/5
+        // GET: QUAN_TRI/Details/5
         public ActionResult Details(string id)
         {
             if (id == null)
@@ -35,13 +35,13 @@ namespace LEVINHHUY_K22CNT1_2210900106.Controllers
             return View(qUAN_TRI);
         }
 
-        // GET: Lvh_QUAN_TRI/Create
+        // GET: QUAN_TRI/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Lvh_QUAN_TRI/Create
+        // POST: QUAN_TRI/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -58,7 +58,7 @@ namespace LEVINHHUY_K22CNT1_2210900106.Controllers
             return View(qUAN_TRI);
         }
 
-        // GET: Lvh_QUAN_TRI/Edit/5
+        // GET: QUAN_TRI/Edit/5
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -73,7 +73,7 @@ namespace LEVINHHUY_K22CNT1_2210900106.Controllers
             return View(qUAN_TRI);
         }
 
-        // POST: Lvh_QUAN_TRI/Edit/5
+        // POST: QUAN_TRI/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -89,7 +89,7 @@ namespace LEVINHHUY_K22CNT1_2210900106.Controllers
             return View(qUAN_TRI);
         }
 
-        // GET: Lvh_QUAN_TRI/Delete/5
+        // GET: QUAN_TRI/Delete/5
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -104,7 +104,7 @@ namespace LEVINHHUY_K22CNT1_2210900106.Controllers
             return View(qUAN_TRI);
         }
 
-        // POST: Lvh_QUAN_TRI/Delete/5
+        // POST: QUAN_TRI/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(string id)

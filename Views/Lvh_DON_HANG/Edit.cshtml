@@ -1,66 +1,100 @@
 ﻿@model LEVINHHUY_K22CNT1_2210900106.Models.DON_HANG
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit Order";
 }
 
-<h2>Edit</h2>
-
+<h2>Edit Order</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>DON_HANG</h4>
-        <hr />
-        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        @Html.HiddenFor(model => model.MaDH)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.MaKH, "MaKH", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("MaKH", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
-            </div>
-        </div>
+<div class="form-horizontal">
+    <h4>Đơn hàng</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Ngay_dat, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Ngay_dat, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Ngay_dat, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Tong_tien, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Tong_tien, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Tong_tien, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            @Html.LabelFor(model => model.Trang_thai, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Trang_thai, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Trang_thai, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
-            </div>
+    @Html.HiddenFor(model => model.MaDH) <!-- Giữ trường MaDH để không cần chỉnh sửa -->
+    <!-- Khách hàng -->
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaKH, "Khách hàng", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaKH", ViewBag.MaKH as SelectList, "Chọn khách hàng", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.MaKH, "", new { @class = "text-danger" })
         </div>
     </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.MaSP, "Sản phẩm", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("MaSP", new SelectList(ViewBag.MaSP, "MaSP", "TenSP", Model.MaSP), "Chọn sản phẩm", new { @class = "form-control", id = "productDropdown" })
+
+            @Html.ValidationMessageFor(model => model.MaSP, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.Label("Số lượng", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("SoLuong", Model.CHI_TIET_DON_HANG.FirstOrDefault()?.So_luong ?? 0, new { @class = "form-control", id = "quantity" })
+
+            @Html.ValidationMessage("SoLuong", "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Tong_tien, "Tổng tiền", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Tong_tien, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly", id = "totalPrice" } })
+
+            @Html.ValidationMessageFor(model => model.Tong_tien, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Trang_thai, "Trạng thái", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Trang_thai, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Trang_thai, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Trở lại danh sách", "Index")
 </div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        $(document).ready(function () {
+            function updateTotalPrice() {
+                var selectedOption = $("#productDropdown").find(":selected");
+                var price = parseFloat(selectedOption.data("price")) || 0; // Lấy giá từ thuộc tính data-price
+                var quantity = parseInt($("#quantity").val()) || 0; // Lấy giá trị số lượng
+                var totalPrice = price * quantity; // Tính tổng tiền
+                $("#totalPrice").val(totalPrice.toFixed(2)); // Cập nhật tổng tiền với 2 chữ số thập phân
+            }
+
+            $("#productDropdown").change(function () {
+                updateTotalPrice(); // Cập nhật tổng tiền
+            });
+
+            $("#quantity").on("input", function () {
+                updateTotalPrice(); // Cập nhật tổng tiền
+            });
+
+            updateTotalPrice(); // Tính toán tổng tiền ban đầu
+        });
+
+    </script>
 }

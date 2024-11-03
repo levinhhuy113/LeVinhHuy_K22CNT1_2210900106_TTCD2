@@ -128,9 +128,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Lvh_CHI_TIET_DON_HANGController.cs" />
     <Compile Include="Controllers\Lvh_DON_HANGController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Lvh_KHACH_HANGController.cs" />
     <Compile Include="Controllers\Lvh_QUAN_TRIController.cs" />
     <Compile Include="Controllers\Lvh_SAN_PHAMController.cs" />
@@ -181,8 +181,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Models\LeVinhHuyModel1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>LeVinhHuyModel1.Context.cs</LastGenOutput>
       <DependentUpon>LeVinhHuyModel1.edmx</DependentUpon>
+      <LastGenOutput>LeVinhHuyModel1.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\LeVinhHuyModel1.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
